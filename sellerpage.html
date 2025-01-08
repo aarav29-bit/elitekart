@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Product Submission</title>
+  <link rel="stylesheet" href="sellerpage.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo2.png" width="150px"> 
+    </div>
+    <ul class="nav-links">
+      <li><a href="index1.html"><img src="home.png" height="50px" width="50px"></a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h2>Submit a New Product</h2>
+    <form id="productForm" onsubmit="return submitProduct()">
+      <div class="form-group">
+        <label for="productName"><p>Product Name:</p></label>
+        <input type="text" id="productName" name="productName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="description"><p>Product Description:</p></label>
+        <textarea id="description" name="description" rows="3" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="category"><p>Category:</p></label>
+        <select id="category" name="category" required>
+          <option value="">Select a Category</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Home Appliances">Home Appliances</option>
+          <option value="Books">Books</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="price"><p>Price (₹):</p></label>
+        <input type="number" id="price" name="price" min="0" required>
+      </div>
+
+      <div class="form-group">
+        <label for="productImage"><p>Upload Product Image:</p></label>
+        <input type="file" id="productImage" name="productImage" accept="image/*" required>
+      </div>
+
+      <button type="submit">Add Product</button>
+    </form>
+    <div id="productList" class="product-list">
+      <h3>Submitted Products</h3>
+      <ul id="productDisplay"></ul>
+    </div>
+  </div>
+  <script src="sellerpage.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signin.css">
+    <title>Sign In</title>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo2.png" width="150px">
+        </div>
+        <div class="nav-links">
+            <a href="index1.html" class="home-btn">home</a>
+        </div>
+    </nav>
+
+    <!-- Sign-In Form Section -->
+    <div class="container">
+        <h2>Sign In</h2>
+        <form id="signInForm">
+            <div class="input">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+    
+            <div class="input">
+                <label for="contact">Phone Number or Email:</label>
+                <input type="text" id="contact" required>
+            </div>
+            <div class="btn">
+                <button type="submit" id="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signInForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Redirect to the second sign-in page
+            window.location.href = 'signin2.html';
+        });
+    </script>
+</body>
+</html>

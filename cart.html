@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elitekart</title>
+    <link href="style.css" rel="stylesheet" >
+    
+</head>
+<body>
+    <div class="bac">
+        <div class="container">
+          <div class="navbar">
+            <div class="logo">
+              <img src="logo2.png" width="180px">
+            </div>
+            <nav>
+              <ul id="menuitems">
+                <li class="dropdown">
+                  <a href="javascript:void(0)" class="dropbtn">Categories</a>
+                  <div class="dropdown-content">
+                    <div class="nested-dropdown">
+                      <a href="javascript:void(0)">Handicrafts</a>
+                      <div class="nested-dropdown-content">
+                        <a href="banarasi.html">Banarasi Saree <span class="superior">Best-Seller</span></a>
+                        <a href="kondapallitoys.html">Kondapalli Toys</a>
+                        <a href="ThangkaPainting.html">Thangka Painting</a>
+                        <a href="khavda.html">Khavda Pottery</a>
+                        <a href="SarkandaCraft.html">Sarkanda Craft</a>
+                        <a href="chikankari.html">Chikankari</a>
+                        <a href="brass.html">Brass Craft <span class="superior">Best-Seller</span></a>
+                        <a href="saharanpur.html">Saharanpur Handicrafts <span class="superior">Best-Seller</span></a>
+                       </div>
+                    </div>
+                    <a href="appliances.html">TV and appliances</a>
+                    <a href="mobile.html">Mobile and Tablets</a>
+                    <a href="laptop.html">Laptop and accessories</a>
+                    <div class="nested-dropdown">
+                      <a href="javascript:void(0)">Fashion</a>
+                      <div class="nested-dropdown-content">
+                        <a href="mens.html">Men's Fashion</a>
+                        <a href="kids.html">Kids Fashion</a>
+                        <a href="female.html">Women's Fashion</a>
+                      </div>
+                    </div>
+                    <a href="furniture.html">Furniture</a>
+                    <a href="beauty.html">Beauty and Food</a>
+                    <a href="books.html">Books</a>
+                    <a href="kitchen.html">Home and Kitchen</a>
+                    <a href="grocery.html">Grocery</a>
+                    <a href="caracc.html">Car and Bike accessories</a>
+                  </div>
+                </li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                
+                <!-- Dropdown for Login -->
+                <li class="dropdown">
+                  <a href="javascript:void(0)" class="dropbtn">Login</a>
+                  <div class="dropdown-content">
+                    <a href="sellerlogin.html">Seller-Login</a>
+                    <a href="userlogin.html">User-Login</a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+            <a href="#" class="imgbtn">
+              <img src="cart2.png" height="60px" width="60px" id="cart">
+            </a>
+          <a href="#" class="menubtn">
+            <img src="menu.png" height="30px" width="30px" onclick="menutoggle()">
+          </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <h1>Find It All<br>From Essentials to Uniques!</h1>
+        <a href="products.html" class="btn"> Explore Now &#10095;</a>
+        <img src="shopbc1.png" class="explore-img"> <!-- Add your image here -->
+      </div>
+  
+    </div>
+  </div>
+</div>
+<!-- New box for icons (weather and dark mode) -->
+<div id="iconBox" class="icon-box">
+  <div class="icon-wrapper">
+    <img src="darkmode.png" id="theme" height="40px" width="40px" onclick="toggleTheme()">
+    <a href="weather.html">
+      <img src="globe.png" alt="Weather Globe" class="toggle-icon" height="40px" width="40px">
+    </a>
+  </div>
+</div>
+<!-- Arrow button to open the box -->
+    <div class="toggle-button" onclick="toggleIconBox()">
+      <img src="arrowleft.png" height="40px" width="40px" alt="Arrow" id="arrow">
+    </div>
+<!--footer-->
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-col-1">
+        <h3>Download Our App</h3>
+        <p>Download App for android and ios mobile phone.</p>
+        <div class="applogo">
+          <img src="applogo.jpg">
+          
+        </div>
+      </div>
+      <div class="footer-col-2">
+        <img src="logo2.png">
+        <p>Empowering Local Artisans, Bringing Authentic Quality to You – EliteKart, Proudly Vocal for Local."</p>
+      </div>
+      <div class="footer-col-3"> 
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="#">coupons</a></li>
+         <li><a href="#">Blog post</a></li>
+          <li><a href="#">Return policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-4"> 
+        <h3>Follow Us</h3>
+        <ul>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Youtube</a></li>
+        </ul>
+      </div>
+    </div>
+  <hr>
+  </div>
+</div>
+<!--js for toggle menu--->
+<script>
+  var menuitems= document.getElementById("menuitems");
+  menuitems.style.maxHeight="0px";
+  function menutoggle(){
+    if( menuitems.style.maxHeight== "0px"){
+       menuitems.style.maxHeight="200px";
+    }
+    else{     
+       menuitems.style.maxHeight="0px";
+    }
+  } 
+  var theme = document.getElementById("theme");
+  if(localStorage.getItem("theme")==null){
+    localStorage.setItem("theme","light"); 
+  }
+  let localData = localStorage.getItem("theme");
+  if(localData=="light"){
+    theme.src= "darkmode.png";
+    document.body.classList.remove("dark-theme");
+  }else if(localData=="dark"){
+    theme.src= "lightmode.png";
+    apple.src= "applelogo2.png";
+    logo3.src= "adidas2.png";
+    logo4.src= "versace2.png";
+    cart.src= "cartwhite2.png";
+    arrow.src= "arrowwhite.png";
+    document.body.classList.add("dark-theme");
+  }
+theme.onclick = function() {
+  document.body.classList.toggle("dark-theme");
+  if (document.body.classList.contains("dark-theme")) {
+    theme.src = "lightmode.png"; 
+    localStorage.setItem("theme","dark");
+  } else {
+    theme.src = "darkmode.png"; 
+    localStorage.setItem("theme","light");
+  }
+  if(document.body.classList.contains("dark-theme")){
+    apple.src= "applelogo2.png";
+  }else{
+    apple.src= "applelogobg.png";
+  }
+  if(document.body.classList.contains("dark-theme")){
+    logo3.src= "adidas2.png";
+  }else{
+    logo3.src= "pumabg.png";
+  }
+  if(document.body.classList.contains("dark-theme")){
+    logo4.src= "versace2.png";
+  }else{
+    logo4.src= "allensollybg.png";
+  }
+  if(document.body.classList.contains("dark-theme")){
+    cart.src= "cartwhite2.png";
+  }else{
+    cart.src= "cart2.png";
+  }
+  if(document.body.classList.contains("dark-theme")){
+    arrow.src= "arrowleft.png";
+  }else{
+    arrow.src= "arrowwhite.png";
+  }
+};
+ // Toggle for icon box
+ function toggleIconBox() {
+        const iconBox = document.getElementById('iconBox');
+        iconBox.classList.toggle('active');
+      }
+         // Toggle theme for dark mode
+         function toggleTheme() {
+        document.body.classList.toggle("dark-theme");
+        let theme = document.getElementById("theme");
+        if (document.body.classList.contains("dark-theme")) {
+          theme.src = "lightmode.png"; 
+          localStorage.setItem("theme", "dark");
+        } else {
+          theme.src = "darkmode.png"; 
+          localStorage.setItem("theme", "light");
+        }
+      }
+</script>
+</body>
+</html>

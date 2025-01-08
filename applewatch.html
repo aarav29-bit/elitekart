@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Watch Series 9 - EliteKart</title>
+  <link rel="stylesheet" href="applewatch.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>EliteKart</h1>
+    </div>
+    <nav>
+      <a href="index1.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="product-details">
+      <h2>Apple Watch Series 9</h2>
+      <div class="product-container">
+        <img src="appleseries9.png" alt="Apple Watch Series 9" class="product-image">
+        <div class="product-info">
+          <p>Experience the latest in wearable technology with the Apple Watch Series 9. Stay connected, track your health, and enjoy sleek, modern design.</p>
+          <ul>
+            <li>Display: Always-on Retina display</li>
+            <li>Features: Blood oxygen sensor, ECG, Fitness tracking</li>
+            <li>Battery: Up to 18 hours</li>
+            <li>Water Resistance: 50 meters</li>
+          </ul>
+          <p class="price"><strong>Price:</strong> ₹40,000</p>
+          <button id="buyNowBtn">Buy Now</button>
+        </div>
+      </div>
+    </section>
+    <section class="reviews">
+        <h3>Customer Reviews</h3>
+        <div class="review-list">
+          <div class="review">
+            <p class="review-text">"Absolutely love this watch! The health tracking features are amazing."</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="review-author">- Riya Sharma</p>
+          </div>
+          <div class="review">
+            <p class="review-text">"A great upgrade from my Series 7. The display is stunning!"</p>
+            <div class="rating">⭐⭐⭐⭐</div>
+            <p class="review-author">- Aman Gupta</p>
+          </div>
+          <div class="review">
+            <p class="review-text">"Good features but the battery life could be better."</p>
+            <div class="rating">⭐⭐⭐⭐</div>
+            <p class="review-author">- Kavita Jain</p>
+          </div>
+        </div>
+        <section class="qr-code-section">
+            <h3>Scan the QR Code for Details</h3>
+            <div id="qrCode"></div>
+            <p>Use this QR code to access the product page or share it with friends.</p>
+          </section>
+      
+  
+        <h4>Submit Your Review</h4>
+        <form id="reviewForm">
+          <textarea id="reviewText" placeholder="Write your review here..." required></textarea>
+          <select id="reviewRating" required>
+            <option value="" disabled selected>Rate the product</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+          </select>
+          <input type="text" id="reviewAuthor" placeholder="Your name" required>
+          <button type="submit">Submit Review</button>
+        </form>
+      </section>
+  </main>
+
+  <footer>
+    <p>© 2024 EliteKart | All Rights Reserved</p>
+  </footer>
+  <script type="text/javascript">
+    new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");
+    </script>
+  <script src="applewatch.js"></script>
+</body>
+</html>

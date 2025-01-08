@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Desk - EliteKart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table th,
+    table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    table th {
+      background-color: #ff523b;
+      color: white;
+    }
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .loading {
+      text-align: center;
+      color: #555;
+      margin-top: 20px;
+    }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #ff523b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ff6f5b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome to the Student Desk</h2>
+    <p>These are the products eligible for student discounts:</p>
+    <div id="product-container">
+      <p class="loading">Loading discounted products...</p>
+    </div>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    // Check if the student is logged in
+    if (!localStorage.getItem("studentLoggedIn")) {
+      window.location.href = "studentlogin.html"; // Redirect to login if not logged in
+    }
+
+    // Hardcoded product data (student-discount products)
+    const products = [
+      { id: 1, name: "HP Pavilion Laptop", originalPrice: 60000, discount: 10 },
+      { id: 2, name: "Dell Inspiron Laptop", originalPrice: 55000, discount: 15 },
+      { id: 3, name: "Samsung Galaxy Tab", originalPrice: 30000, discount: 12 },
+      { id: 4, name: "Sony Headphones", originalPrice: 8000, discount: 20 },
+      { id: 5, name: "Logitech Mouse", originalPrice: 2000, discount: 5 },
+    ];
+
+    // Function to load discounted products
+    function loadDiscountedProducts() {
+      const productContainer = document.getElementById("product-container");
+
+      // Clear loading text
+      productContainer.innerHTML = "";
+
+      if (products.length === 0) {
+        productContainer.innerHTML = "<p>No discounted products available.</p>";
+        return;
+      }
+
+      // Build table to display products
+      const table = document.createElement("table");
+      table.innerHTML = `
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Original Price</th>
+            <th>Student Discount</th>
+            <th>Discounted Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${products
+            .map(
+              (product) => `
+            <tr>
+              <td>${product.name}</td>
+              <td>₹${product.originalPrice}</td>
+              <td>${product.discount}%</td>
+              <td>₹${(
+                product.originalPrice -
+                (product.originalPrice * product.discount) / 100
+              ).toFixed(2)}</td>
+            </tr>
+          `
+            )
+            .join("")}
+        </tbody>
+      `;
+      productContainer.appendChild(table);
+    }
+
+    // Call the function to load products
+    loadDiscountedProducts();
+
+    // Logout function
+    function logout() {
+      localStorage.removeItem("studentLoggedIn");
+      window.location.href = "studentlogin.html"; // Redirect to login on logout
+    }
+  </script>
+</body>
+</html>

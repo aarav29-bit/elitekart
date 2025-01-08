@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background:url(bg2.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Open Sans", sans-serif; 
+}
+
+header {
+    background-color:#f76451;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    margin-right: 15px;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    padding: 30px 20px;
+}
+
+.contact-section {
+    max-width: 800px;
+    margin: 0 auto; /* Centering the section */
+    padding: 20px;
+    background:transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: borderAnimation 2s infinite; /* Apply the animation */
+}
+
+.contact-info {
+    margin-bottom: 30px; /* Space below the contact info */
+}
+
+.contact-info p {
+    margin-bottom: 15px; /* Space below the introductory text */
+}
+
+.contact-info ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove left padding */
+}
+
+.contact-info li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.contact-form {
+    margin-top: 20px; /* Space above the form */
+}
+
+.contact-form h3 {
+    margin-bottom: 15px; /* Space below the form heading */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form groups */
+    background: transparent;
+}
+
+label {
+    display: block; /* Make label take full width */
+    margin-bottom: 5px; /* Space below labels */
+    background: transparent;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Inner padding */
+    border: 1px solid #070606; /* Border */
+    border-radius: 4px; /* Rounded corners */
+    background: transparent;
+}
+
+button {
+    padding: 10px 15px; /* Button padding */
+    background-color: #ff523b; /* Button background */
+    color: #fff; /* Button text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+    background-color: #555; /* Darker background on hover */
+}
+
+footer {
+    background-color: #ff523b;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px; /* Added spacing above footer */
+}
+@keyframes borderAnimation {
+    0% {
+        border: 5px solid transparent;
+    }
+    50% {
+        border: 5px solid #ff523b /* Change this to the desired color */
+    }
+    100% {
+        border: 5px solid transparent;
+    }
+}

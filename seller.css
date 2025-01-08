@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: url(bckgrndimg.avif) no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .container {
+    width: 400px;
+    padding: 20px;
+    background:transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2, h3 {
+    text-align: center;
+    color: #0c0b0b;
+    font-weight: 600;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    background: transparent;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #555252;
+    border-radius: 10px;
+    background: transparent;
+  }
+  
+   .btn{
+
+    background:transparent;
+  }
+  .btn a{
+    text-decoration: none;
+    padding-left: 40%;
+    align-items: center;
+    color:black;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  .btn :hover{
+    text-decoration:underline;
+    opacity: 0.7;
+  }
+  
