@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elitekart</title>
     <link href="style.css" rel="stylesheet" >
-    
+    <link href="cart.css" rel="stylesheet" >
 </head>
 <body>
     <div class="bac">
@@ -16,40 +16,6 @@
             </div>
             <nav>
               <ul id="menuitems">
-                <li class="dropdown">
-                  <a href="javascript:void(0)" class="dropbtn">Categories</a>
-                  <div class="dropdown-content">
-                    <div class="nested-dropdown">
-                      <a href="javascript:void(0)">Handicrafts</a>
-                      <div class="nested-dropdown-content">
-                        <a href="banarasi.html">Banarasi Saree <span class="superior">Best-Seller</span></a>
-                        <a href="kondapallitoys.html">Kondapalli Toys</a>
-                        <a href="ThangkaPainting.html">Thangka Painting</a>
-                        <a href="khavda.html">Khavda Pottery</a>
-                        <a href="SarkandaCraft.html">Sarkanda Craft</a>
-                        <a href="chikankari.html">Chikankari</a>
-                        <a href="brass.html">Brass Craft <span class="superior">Best-Seller</span></a>
-                        <a href="saharanpur.html">Saharanpur Handicrafts <span class="superior">Best-Seller</span></a>
-                       </div>
-                    </div>
-                    <a href="appliances.html">TV and appliances</a>
-                    <a href="mobile.html">Mobile and Tablets</a>
-                    <a href="laptop.html">Laptop and accessories</a>
-                    <div class="nested-dropdown">
-                      <a href="javascript:void(0)">Fashion</a>
-                      <div class="nested-dropdown-content">
-                        <a href="mens.html">Men's Fashion</a>
-                        <a href="kids.html">Kids Fashion</a>
-                        <a href="female.html">Women's Fashion</a>
-                      </div>
-                    </div>
-                    <a href="furniture.html">Furniture</a>
-                    <a href="beauty.html">Beauty and Food</a>
-                    <a href="books.html">Books</a>
-                    <a href="kitchen.html">Home and Kitchen</a>
-                    <a href="grocery.html">Grocery</a>
-                    <a href="caracc.html">Car and Bike accessories</a>
-                  </div>
                 </li>
                 <li><a href="about.html">About us</a></li>
                 <li><a href="contact.html">Contact us</a></li>
@@ -64,20 +30,36 @@
                 </li>
               </ul>
             </nav>
-            <a href="#" class="imgbtn">
-              <img src="cart2.png" height="60px" width="60px" id="cart">
-            </a>
           <a href="#" class="menubtn">
             <img src="menu.png" height="30px" width="30px" onclick="menutoggle()">
           </a>
           </div>
         </div>
       </div>
-      <div class="col-2">
-        <h1>Find It All<br>From Essentials to Uniques!</h1>
-        <a href="products.html" class="btn"> Explore Now &#10095;</a>
-        <img src="shopbc1.png" class="explore-img"> <!-- Add your image here -->
-      </div>
+      <main>
+        <h2>Products</h2>
+        <div class="product" data-name="Banarasi Saree" data-price="2000">
+          <h3>Banarasi Saree</h3>
+          <p>Price: ₹2000</p>
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="buy-now">Buy Now</button>
+        </div>
+        <div class="product" data-name="Thangka Painting" data-price="5000">
+          <h3>Thangka Painting</h3>
+          <p>Price: ₹5000</p>
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="buy-now">Buy Now</button>
+        </div>
+        <!-- Add more products as needed -->
+      </main>
+    
+      <section id="cart">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items">
+          <p>Your cart is empty.</p>
+        </div>
+        <p id="total-price"></p>
+      </section>
   
     </div>
   </div>
@@ -213,6 +195,56 @@ theme.onclick = function() {
           localStorage.setItem("theme", "light");
         }
       }
+const cart = [];
+const cartItemsContainer = document.getElementById("cart-items");
+const cartCountElement = document.getElementById("cart-count");
+const totalPriceElement = document.getElementById("total-price");
+
+document.querySelectorAll(".add-to-cart").forEach(button => {
+  button.addEventListener("click", event => {
+    const productElement = event.target.closest(".product");
+    addToCart(productElement);
+  });
+});
+
+document.querySelectorAll(".buy-now").forEach(button => {
+  button.addEventListener("click", event => {
+    const productElement = event.target.closest(".product");
+    addToCart(productElement);
+    window.location.href = "#cart";
+  });
+});
+
+function addToCart(productElement) {
+  const productName = productElement.getAttribute("data-name");
+  const productPrice = parseFloat(productElement.getAttribute("data-price"));
+
+  // Add product to cart array
+  cart.push({ name: productName, price: productPrice });
+
+  // Update cart display
+  updateCart();
+}
+
+function updateCart() {
+  cartItemsContainer.innerHTML = ""; // Clear current cart items
+  let total = 0;
+
+  cart.forEach(item => {
+    const cartItem = document.createElement("p");
+    cartItem.textContent = `${item.name} - ₹${item.price}`;
+    cartItemsContainer.appendChild(cartItem);
+    total += item.price;
+  });
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+  }
+
+  cartCountElement.textContent = cart.length;
+  totalPriceElement.textContent = `Total Price: ₹${total}`;
+}
+
 </script>
 </body>
 </html>
